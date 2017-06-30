@@ -1,14 +1,14 @@
-inherit kf5
+inherit kf5 python2 python3
 
 NAME="kf5-kguiaddons"
-VERSION=5.27.0
+VERSION=5.35.0
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="KDE 5 GUI addons library"
 DESCRIPTION="The KDE GUI addons provide utilities for graphical user interfaces
 in the areas of colors, fonts, text, images, keyboard input."
 
-PKG_NAMES="libKF5GuiAddons5 libKF5GuiAddons-devel"
+PKG_NAMES="libKF5GuiAddons5 libKF5GuiAddons-devel python2-pykf5-kguiaddons python3-pykf5-kguiaddons"
 libKF5GuiAddons5_CONTENTS="usr/bin/cygKF5GuiAddons-5.dll usr/share/doc/"
 libKF5GuiAddons_devel_REQUIRES="libQt5Core-devel libQt5Gui-devel"
 libKF5GuiAddons_devel_CONTENTS="
@@ -17,4 +17,7 @@ libKF5GuiAddons_devel_CONTENTS="
 	usr/lib/cmake/KF5GuiAddons/
 	${QT5_MKSPECSDIR#/}/modules/qt_KGuiAddons.pri
 	usr/lib/libKF5GuiAddons.dll.a
+	usr/share/sip/PyKF5/KGuiAddons/
 "
+python2_pykf5_kguiaddons_CONTENTS="${PYTHON2_SITELIB#/}/PyKF5/KGuiAddons.dll"
+python3_pykf5_kguiaddons_CONTENTS="${PYTHON3_SITELIB#/}/PyKF5/KGuiAddons.dll"
